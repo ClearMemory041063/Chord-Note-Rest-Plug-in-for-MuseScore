@@ -2,6 +2,9 @@
 
 ##### This plugin pops up a window that allows entry of Rests, Notes and Chords
 
+![alt text](https://github.com/ClearMemory041063/Chord-Note-Rest-Plug-in-for-MuseScore/blob/master/Screenshot.png " ")
+
+
 1. Default entry position is at the start of the trebel cleft.
 2. Select a different area for data entry
 3. The reset button allows a new section of the score to be selected
