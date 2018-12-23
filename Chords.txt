@@ -1,0 +1,176 @@
+#Chords
+xxx=',//'
+cn=chord_names
+i=0
+puts chord_names.length
+cnn=[]
+while (i<chord_names.length)
+  chd=chord(:C4,cn[i])
+  j=0
+  cnn=[]
+  while (j<chd.length)
+    cnn.push(chd[j])
+    j+=1
+  end
+  
+  puts cnn,xxx,cn[i]
+  i+=1
+end
+puts chord_names.length
+
+
+  [60, 64, 68] ,//  +5 
+  [60] ,//  1 
+  [60, 64, 67, 70, 74, 77] ,//  11 
+  [60, 64, 67, 70, 74, 78] ,//  11+ 
+  [60, 64, 67, 70, 74, 77, 81] ,//  13 
+  [60, 67] ,//  5 
+  [60, 64, 67, 69] ,//  6 
+  [60, 64, 67, 69, 74] ,//  6*9 
+  [60, 64, 67, 70] ,//  7 
+  [60, 64, 68, 70] ,//  7+5 
+  [60, 64, 68, 70, 73] ,//  7+5-9 
+  [60, 64, 67, 70, 75] ,//  7-10 
+  [60, 64, 67, 70, 76] ,//  7-11 
+  [60, 64, 67, 70, 80] ,//  7-13 
+  [60, 64, 66, 70] ,//  7-5 
+  [60, 64, 67, 70, 73] ,//  7-9 
+  [60, 62, 67, 70] ,//  7sus2 
+  [60, 65, 67, 70] ,//  7sus4 
+  [60, 64, 67, 70, 74] ,//  9 
+  [60, 70, 73] ,//  9+5 
+  [60, 65, 67, 70, 74] ,//  9sus4 
+  [60, 64, 67] ,//  M 
+  [60, 64, 67, 71] ,//  M7 
+  [60, 64, 68] ,//  a 
+  [60, 64, 67, 77] ,//  add11 
+  [60, 64, 67, 81] ,//  add13 
+  [60, 62, 64, 67] ,//  add2 
+  [60, 64, 65, 67] ,//  add4 
+  [60, 64, 67, 74] ,//  add9 
+  [60, 64, 68] ,//  augmented 
+  [60, 63, 66] ,//  dim 
+  [60, 63, 66, 69] ,//  dim7 
+  [60, 63, 66] ,//  diminished 
+  [60, 63, 66, 69] ,//  diminished7 
+  [60, 64, 67, 70] ,//  dom7 
+  [60, 63, 66, 70] ,//  halfdim 
+  [60, 63, 66, 70] ,//  halfdiminished 
+  [60, 63, 66] ,//  i 
+  [60, 63, 66, 69] ,//  i7 
+  [60, 63, 67] ,//  m 
+  [60, 63, 68] ,//  m+5 
+  [60, 63, 67, 70, 74, 77] ,//  m11 
+  [60, 63, 67, 70, 74, 78] ,//  m11+ 
+  [60, 63, 67, 70, 74, 77, 81] ,//  m13 
+  [60, 63, 67, 69] ,//  m6 
+  [60, 63, 69, 67, 74] ,//  m6*9 
+  [60, 63, 67, 70] ,//  m7 
+  [60, 63, 68, 70] ,//  m7+5 
+  [60, 63, 68, 70, 73] ,//  m7+5-9 
+  [60, 63, 67, 70, 74] ,//  m7+9 
+  [60, 63, 66, 70] ,//  m7-5 
+  [60, 63, 67, 70, 73] ,//  m7-9 
+  [60, 63, 66, 70] ,//  m7b5 
+  [60, 63, 67, 70, 74] ,//  m9 
+  [60, 70, 74] ,//  m9+5 
+  [60, 63, 67, 77] ,//  madd11 
+  [60, 63, 67, 81] ,//  madd13 
+  [60, 62, 63, 67] ,//  madd2 
+  [60, 63, 65, 67] ,//  madd4 
+  [60, 63, 67, 74] ,//  madd9 
+  [60, 64, 67] ,//  maj 
+  [60, 64, 67, 71, 74, 77] ,//  maj11 
+  [60, 64, 67, 71, 74] ,//  maj9 
+  [60, 64, 67] ,//  major 
+  [60, 64, 67, 71] ,//  major7 
+  [60, 63, 67] ,//  min 
+  [60, 63, 67] ,//  minor 
+  [60, 63, 67, 70] ,//  minor7 
+  [60, 62, 67] ,//  sus2 
+  [60, 65, 67] ,//  sus4 
+
+
+#Chords
+# ListElement { text: "Major; note: 0;  }
+
+xxx=',//'
+cn=chord_names
+i=0
+puts chord_names.length
+while (i<chord_names.length)
+  puts "ListElement { text:",cn[i],; note: ",i,;} 
+  i+=1
+end
+
+
+  ListElement { text:"+5"; note:  0;}  
+  ListElement { text:"1"; note:  1;}  
+  ListElement { text:"11"; note:  2;}  
+  ListElement { text:"11+"; note:  3;}  
+  ListElement { text:"13"; note:  4;}  
+  ListElement { text:"5"; note:  5;}  
+  ListElement { text:"6"; note:  6;}  
+  ListElement { text:"6*9"; note:  7;}  
+  ListElement { text:"7"; note:  8;}  
+  ListElement { text:"7+5"; note:  9;}  
+  ListElement { text:"7+5-9"; note:  10;}  
+  ListElement { text:"7-10"; note:  11;}  
+  ListElement { text:"7-11"; note:  12;}  
+  ListElement { text:"7-13"; note:  13;}  
+  ListElement { text:"7-5"; note:  14;}  
+  ListElement { text:"7-9"; note:  15;}  
+  ListElement { text:"7sus2"; note:  16;}  
+  ListElement { text:"7sus4"; note:  17;}  
+  ListElement { text:"9"; note:  18;}  
+  ListElement { text:"9+5"; note:  19;}  
+  ListElement { text:"9sus4"; note:  20;}  
+  ListElement { text:"M"; note:  21;}  
+  ListElement { text:"M7"; note:  22;}  
+  ListElement { text:"a"; note:  23;}  
+  ListElement { text:"add11"; note:  24;}  
+  ListElement { text:"add13"; note:  25;}  
+  ListElement { text:"add2"; note:  26;}  
+  ListElement { text:"add4"; note:  27;}  
+  ListElement { text:"add9"; note:  28;}  
+  ListElement { text:"augmented"; note:  29;}  
+  ListElement { text:"dim"; note:  30;}  
+  ListElement { text:"dim7"; note:  31;}  
+  ListElement { text:"diminished"; note:  32;}  
+  ListElement { text:"diminished7"; note:  33;}  
+  ListElement { text:"dom7"; note:  34;}  
+  ListElement { text:"halfdim"; note:  35;}  
+  ListElement { text:"halfdiminished"; note:  36;}  
+  ListElement { text:"i"; note:  37;}  
+  ListElement { text:"i7"; note:  38;}  
+  ListElement { text:"m"; note:  39;}  
+  ListElement { text:"m+5"; note:  40;}  
+  ListElement { text:"m11"; note:  41;}  
+  ListElement { text:"m11+"; note:  42;}  
+  ListElement { text:"m13"; note:  43;}  
+  ListElement { text:"m6"; note:  44;}  
+  ListElement { text:"m6*9"; note:  45;}  
+  ListElement { text:"m7"; note:  46;}  
+  ListElement { text:"m7+5"; note:  47;}  
+  ListElement { text:"m7+5-9"; note:  48;}  
+  ListElement { text:"m7+9"; note:  49;}  
+  ListElement { text:"m7-5"; note:  50;}  
+  ListElement { text:"m7-9"; note:  51;}  
+  ListElement { text:"m7b5"; note:  52;}  
+  ListElement { text:"m9"; note:  53;}  
+  ListElement { text:"m9+5"; note:  54;}  
+  ListElement { text:"madd11"; note:  55;}  
+  ListElement { text:"madd13"; note:  56;}  
+  ListElement { text:"madd2"; note:  57;}  
+  ListElement { text:"madd4"; note:  58;}  
+  ListElement { text:"madd9"; note:  59;}  
+  ListElement { text:"maj"; note:  60;}  
+  ListElement { text:"maj11"; note:  61;}  
+  ListElement { text:"maj9"; note:  62;}  
+  ListElement { text:"major"; note:  63;}  
+  ListElement { text:"major7"; note:  64;}  
+  ListElement { text:"min"; note:  65;}  
+  ListElement { text:"minor"; note:  66;}  
+  ListElement { text:"minor7"; note:  67;}  
+  ListElement { text:"sus2"; note:  68;}  
+  ListElement { text:"sus4"; note:  69;}  

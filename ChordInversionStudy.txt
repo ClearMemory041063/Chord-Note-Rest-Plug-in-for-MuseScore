@@ -1,0 +1,142 @@
+Sonic Pi contains a chord inversion function as expalined here:
+
+chord_invert  notes (list), shift (number) 
+Given a set of notes, apply a number of inversions indicated by the shift parameter. Inversions being an increase to notes if shift is positive or decreasing the notes if shift is negative. 
+An inversion is simply rotating the chord and shifting the wrapped notes up or down an octave. For example, consider the chord :e3, :minor - (ring 52, 55, 59). When we invert it once, we rotate the notes around to (ring 55, 59, 52). However, because note 52 is wrapped round, it’s shifted up an octave (12 semitones) so the actual first inversion of the chord :e3, :minor is (ring 55, 59, 52 + 12) or (ring 55, 59, 64). 
+Note that it’s also possible to directly invert chords on creation with the invert: opt - (chord :e3, :minor, invert: 2) 
+Introduced in v2.6 
+Example 
+
+# Example 1
+
+play (chord_invert (chord :A3, "M"), 0)
+sleep 1
+play (chord_invert (chord :A3, "M"), 1)
+sleep 1
+play (chord_invert (chord :A3, "M"), 2)
+
+
+ 
+
+#No inversion     - (ring 57, 61, 64)
+ 
+#First inversion  - (ring 61, 64, 69)
+ 
+#Second inversion - (ring 64, 69, 73)
+
+
+ 
+In order to use the same logic in the Chord1 plug-in for Musescore the following code was tested in Sonic Pi
+
+#ChordinversionStudy1.rb
+
+def midi2note(n)
+  nn=note(n)
+  if nn==nil
+    return nn
+  else
+    nn= note_info(nn)
+    nnn=nn.to_s.split(":")
+    mmm= nnn[3].chop
+    return mmm
+  end
+end # midi2note
+
+def ring2array(a)
+  i=0
+  b=[]
+  while i<a.length
+    b.push(a[i])
+    i+=1
+  end
+  return b
+end
+
+def invert(a,n)
+  if n>=0
+    b=ring2array(a)
+    i=0
+    while i<n
+      c=b.slice!(0)
+      b.push(c+12)
+      i+=1
+    end
+    return b
+  end
+  n=-n
+  b=ring2array(a)
+  #puts b
+  i=0
+  while i<n
+    c=b.pop()
+    #  if(n>2)
+    #puts "c",i,b,c
+    #  end
+    d=[]
+    d.push(c-12)
+    d.push(b)
+    b=d.flatten
+    i+=1
+  end
+  #puts "c",n,b,c,b
+  return b
+end
+
+a=chord(:c4,'major')
+i=-3
+while i<4
+  puts i,invert(a,i),chord_invert(a,i)
+  i+=1
+end
+
+The code produces the following output:
+ +- -3 [48, 52, 55] (ring 48, 52, 55)
+ +- -2 [52, 55, 60] (ring 52, 55, 60)
+ +- -1 [55, 60, 64] (ring 55, 60, 64)
+ +- 0 [60, 64, 67] (ring 60, 64, 67)
+ +- 1 [64, 67, 72] (ring 64, 67, 72)
+ +- 2 [67, 72, 76] (ring 67, 72, 76)
+ +- 3 [72, 76, 79] (ring 72, 76, 79)
+ 
+The corresponding code in the plug-in :
+
+  function copyarray(a){
+   var b=[];
+   for(var i=0;i<a.length;i++) b.push(a[i]);
+   return b;
+  }//end copyarray
+
+  function invertChord(a,n){
+   var b=[];
+   var i;
+   var c;
+   var d=[];
+   if (n>=0){
+    b=copyarray(a);
+    i=0;
+    while (i<n){
+      c=b[0];
+      b=b.slice(1,b.length);
+      b.push(c+12);
+      i+=1;
+    }//end while
+    return b;
+   }//end if
+   n=-n;
+   b=copyarray(a);
+   i=0;
+   while (i<n){
+    c=b.pop();
+    d=[];
+    d.push(c-12);
+for(var j=0;j<b.length;j++) d.push(b[j]);
+    b=copyarray(d)//d.flatten;
+    i+=1;
+   }//end while
+   return b;
+  }//end invertChord
+
+Where the (a,n) parameters are
+a= [60,64,67] an array of midi note pitches represeting the chord
+b= the inversion number -7 to +7
+
